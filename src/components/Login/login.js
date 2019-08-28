@@ -8,7 +8,28 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const handleLogin = () => {
-        return null
+
+        let query = `
+                mutation {
+                    tokenAuth(
+                        username: "${username}", 
+                        password: "${password}"
+                    ){
+                    token
+                }}
+            `
+        
+        fetch('http://localhost:8000/graphql/', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({query: query})
+        })
+        .then(resp=>resp.json())
+        .then(json=>console.log(json))
+        .catch(errors=>console.log(errors))
     }
 
     return (
@@ -21,12 +42,12 @@ const Login = () => {
                 <input type='text' value={username} onChange={e=>setUsername(e.target.value)} placeholder='Username' />
                 <input type='password' value={password} onChange={e=>setPassword(e.target.value)} placeholder='Password' />
                 <button onClick={handleLogin}>LOGIN</button>
-                <div>Forgot your username or password? <Link>Click here.</Link></div>
-                <div>Need an account? <Link>Sign Up</Link></div> 
+                <div>Forgot your username or password? <Link to="/recover">Click here.</Link></div>
+                <div>Need an account? <Link to="/signup">Sign Up</Link></div> 
                 <div className='login-footer'>
-                    <Link>About Us</Link>
-                    <Link>Contact Us</Link>
-                    <Link>Github</Link>
+                    <Link to="/about">About Us</Link>
+                    <Link to="contact">Contact Us</Link>
+                    <Link to="https://github.com/jwy5140/grocery_list">Github</Link>
                 </div>
             </LoginBlock>
         </FrontPage>)
@@ -57,7 +78,7 @@ const LoginBlock = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto auto auto 10vw;
+    margin: auto auto auto auto;
     height: 50vh;
     border: 1px solid black;
 
