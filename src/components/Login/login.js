@@ -28,7 +28,9 @@ const Login = () => {
             body: JSON.stringify({query: query})
         })
         .then(resp=>resp.json())
-        .then(json=>console.log(json))
+        .then(json=>{
+            document.cookie = `jwt = ${json.data}; secure;`
+        })
         .catch(errors=>console.log(errors))
     }
 
