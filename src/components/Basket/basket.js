@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import Navbar from '../Navbar'
 import List from '../List'
 
 const Basket = () => {
@@ -44,7 +43,9 @@ const Basket = () => {
 
     return <Dashboard>
             {createLists}
-            <Link to="/add_new_list"><AddButton type="image" src="./images/plus.jpg"/></Link>
+            <Link to="/add_new_list">
+                <AddButton type="image" src="./images/plus.jpg"/>
+            </Link>
         </Dashboard>
 }
 

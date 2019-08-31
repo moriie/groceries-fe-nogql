@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const List = () => {
+const List = (props) => {
 
     return <GroceryList>
         <h1>Pname</h1>
-        <img />
+        <img alt={`item-${props.id}`}/>
         <div>
             <ol>
                 <li>P1</li>
