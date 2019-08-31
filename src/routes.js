@@ -3,13 +3,13 @@ import { Route, Switch } from 'react-router-dom'
 
 //components
 import Login from './components/Login'
-import Basket from './components/Basket'
+import AuthRoutes from './authroutes'
 
 
 const Routes = () => {
     return <Switch>
         <Route exact path='/' component={Login} />
-        <Route exact path='/home' component={Basket} />
+        <Route path='/' component={AuthRoutes} />
     </Switch>
 }
 

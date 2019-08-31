@@ -42,13 +42,10 @@ const Basket = () => {
         setNewlist({name: '', description: '', items: ''})
     }
 
-    return <React.Fragment>
-        <Navbar />
-        <Dashboard>
+    return <Dashboard>
             {createLists}
             <Link to="/add_new_list"><AddButton type="image" src="./images/plus.jpg"/></Link>
         </Dashboard>
-    </React.Fragment>
 }
 
 export default Basket
