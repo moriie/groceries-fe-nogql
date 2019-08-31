@@ -29,7 +29,7 @@ const Login = () => {
         })
         .then(resp=>resp.json())
         .then(json=>{
-            document.cookie = `jwt = ${json.data}; secure;`
+            document.cookie = `jwt = ${json.data}; secure; httponly;`
         })
         .catch(errors=>console.log(errors))
     }
@@ -49,7 +49,7 @@ const Login = () => {
                 <div className='login-footer'>
                     <Link to="/about">About Us</Link>
                     <Link to="contact">Contact Us</Link>
-                    <Link to="https://github.com/jwy5140/grocery_list">Github</Link>
+                    <a href="https://github.com/jwy5140/grocery_list" target="_blank">Github</a>
                 </div>
             </LoginBlock>
         </FrontPage>)

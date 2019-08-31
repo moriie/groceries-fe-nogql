@@ -136,7 +136,6 @@ const Preview = styled.div`
         margin: 5vh 2vw;
         background-color: whitesmoke;
         border: 1px solid black;
-        border-radius: 10px;
     }
 ` 
 

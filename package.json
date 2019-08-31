@@ -1,6 +1,7 @@
 {
   "name": "grocery_bag_fe",
   "version": "0.1.0",
+  "homepage": "https://groceries.jayewe.com",
   "private": true,
   "dependencies": {
     "dotenv": "^8.1.0",
@@ -16,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sync": "aws s3 sync build/. s3://groceries-jayewe-com"
   },
   "eslintConfig": {
     "extends": "react-app"
