@@ -1,16 +1,22 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Navbar = () => {
 
-    return <div className='navbar'>
+    return <Nav>
         <img src='./images/grocery_bag.png' alt='bag-logo'/>
-        <h1>Your Shopping Lists</h1>
-        <ul>
-            <li>Placeholder 1</li>
-            <li>Placeholder 2</li>
-            <li>Placeholder 3</li>
-        </ul>
-    </div>
+    </Nav>
 }
 
 export default Navbar
+
+const Nav = styled.div`
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+
+    img {
+        max-height: 10vh;
+        width: auto;
+    }
+`
