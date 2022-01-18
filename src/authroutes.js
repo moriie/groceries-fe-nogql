@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 //components
 import Basket from './components/Basket'
@@ -10,10 +10,10 @@ const AuthRoutes = () => {
 
     return <div>
         <Navbar />
-        <Switch>
-            <Route exact path="/home" component={Basket} />
-            <Route exact path="/add_new_list" component={NewListForm} />
-        </Switch>
+        <Routes>
+            <Route exact path="/home" element={<Basket/>} />
+            <Route exact path="/add_new_list" element={<NewListForm/>} />
+        </Routes>
     </div>
 }
 

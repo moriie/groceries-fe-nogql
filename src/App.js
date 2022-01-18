@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
 
-import Routes from './routes'
+import PublicRoutes from './publicroutes'
 
 function App() {
   return (
     <Wrapper>
-      <Routes />
+      <PublicRoutes />
     </Wrapper>
   );
 }
