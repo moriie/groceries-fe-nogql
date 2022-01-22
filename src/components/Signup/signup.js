@@ -10,24 +10,28 @@ const Signup = (props) => {
 
     const handleSignup = () => {
 
-        let query = `
-                mutation {
-                    createUser(
-                        username: "${username}", 
-                        password: "${password}",
-                        email: "${email}",
-                    ){
-                    token
-                }}
-            `
+        // let query = `
+        //         mutation {
+        //             createUser(
+        //                 username: "${username}", 
+        //                 password: "${password}",
+        //                 email: "${email}",
+        //             ){
+        //             token
+        //         }}
+        //     `
         
-        fetch('http://localhost:8000/graphql/', {
+        fetch('http://localhost:8000/users/signup', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Accept": "application/json",
             },
-            body: JSON.stringify({query: query})
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                email: email
+            })
         })
     }
 

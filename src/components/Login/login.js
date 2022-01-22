@@ -9,27 +9,33 @@ const Login = () => {
 
     const handleLogin = () => {
 
-        let query = `
-                mutation {
-                    tokenAuth(
-                        username: "${username}", 
-                        password: "${password}"
-                    ){
-                    token
-                }}
-            `
+        // let query = `
+        //         mutation {
+        //             tokenAuth(
+        //                 username: "${username}", 
+        //                 password: "${password}"
+        //             ){
+        //             token
+        //         }}
+        //     `
         
-        fetch('http://localhost:8000/graphql/', {
+        fetch('http://localhost:8000/sessions/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({query: query})
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
         })
         .then(resp=>resp.json())
         .then(json=>{
-            document.cookie = `jwt = ${json.data}; secure; httponly;`
+            // document.cookie = `jwt = ${json.data}; secure; httponly;`
+            //testing with jwt
+            document.cookie = `jwt = ${json.token}; secure; httponly;`
+            console.log(json.token)
         })
         .catch(errors=>console.log(errors))
     }
