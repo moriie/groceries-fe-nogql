@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
+import Footer from '../Footer'
 
 const Signup = (props) => {
 
@@ -38,11 +40,7 @@ const Signup = (props) => {
                 <input type='text' value={email} onChange={e=>setEmail(e.target.value)} placeholder='Email' />
                 <button onClick={handleSignup}>SIGN UP</button>
                 <button onClick={()=>navigate("/")}>BACK</button>
-                <div className='signup-footer'>
-                    <Link to="/about">About Us</Link>
-                    <Link to="/contact">Contact Us</Link>
-                    <a href="https://github.com/jwy5140/grocery_list" target="_blank">Github</a>
-                </div>
+                <Footer/>
             </SignupBlock>
         </FrontPage>)
 }
@@ -68,6 +66,7 @@ const Image = styled.img`
 `
 
 const SignupBlock = styled.div`
+    position: relative;
     background-color: white;
     display: flex;
     flex-direction: column;

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import Footer from "../Footer"
+
 const Login = () => {
 
     const [username, setUsername] = useState('')
@@ -42,11 +44,7 @@ const Login = () => {
                 <button onClick={handleLogin}>LOGIN</button>
                 <div>Forgot your username or password? <Link to="/recover">Click here.</Link></div>
                 <div>Need an account? <Link to="/signup">Sign Up</Link></div> 
-                <div className='login-footer'>
-                    <Link to="/about">About Us</Link>
-                    <Link to="contact">Contact Us</Link>
-                    <a href="https://github.com/jwy5140/grocery_list" target="_blank">Github</a>
-                </div>
+                <Footer/>
             </LoginBlock>
         </FrontPage>)
 }
@@ -72,6 +70,7 @@ const Image = styled.img`
 `
 
 const LoginBlock = styled.div`
+    position: relative;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -129,21 +128,6 @@ const LoginBlock = styled.div`
         a {
             text-decoration: none;
             font-weight: bold;
-        }
-    }
-
-    .login-footer {
-        margin-top: auto;
-        margin-bottom: 1vh;
-
-        a {
-            border-right: 1px solid black;
-            padding-right: .5vw;
-            margin-right: .5vw;
-        }
-        
-        a:last-child {
-            border-right: none;
         }
     }
 `
