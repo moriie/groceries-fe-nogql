@@ -8,16 +8,6 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const handleLogin = () => {
-
-        // let query = `
-        //         mutation {
-        //             tokenAuth(
-        //                 username: "${username}", 
-        //                 password: "${password}"
-        //             ){
-        //             token
-        //         }}
-        //     `
         
         fetch('http://localhost:8000/sessions/login', {
             method: "POST",

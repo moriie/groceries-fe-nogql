@@ -1,25 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = (props) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    const navigate = useNavigate();
 
     const handleSignup = () => {
-
-        // let query = `
-        //         mutation {
-        //             createUser(
-        //                 username: "${username}", 
-        //                 password: "${password}",
-        //                 email: "${email}",
-        //             ){
-        //             token
-        //         }}
-        //     `
         
         fetch('http://localhost:8000/users/signup', {
             method: "POST",
@@ -33,6 +23,7 @@ const Signup = (props) => {
                 email: email
             })
         })
+        .then(navigate("/"))
     }
 
     return (
@@ -46,10 +37,10 @@ const Signup = (props) => {
                 <input type='password' value={password} onChange={e=>setPassword(e.target.value)} placeholder='Password' />
                 <input type='text' value={email} onChange={e=>setEmail(e.target.value)} placeholder='Email' />
                 <button onClick={handleSignup}>SIGN UP</button>
-                <button onClick={()=>props.history.push('/')}>BACK</button>
+                <button onClick={()=>navigate("/")}>BACK</button>
                 <div className='signup-footer'>
                     <Link to="/about">About Us</Link>
-                    <Link to="contact">Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                     <a href="https://github.com/jwy5140/grocery_list" target="_blank">Github</a>
                 </div>
             </SignupBlock>
