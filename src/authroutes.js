@@ -11,8 +11,8 @@ const AuthRoutes = () => {
     return <div>
         <Navbar />
         <Routes>
-            <Route exact path="/home" element={<Basket/>} />
-            <Route exact path="/add_new_list" element={<NewListForm/>} />
+            <Route exact path="/baskets" element={<Basket/>} />
+            <Route exact path="/baskets/create" element={<NewListForm/>} />
         </Routes>
     </div>
 }

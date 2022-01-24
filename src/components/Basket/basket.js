@@ -9,7 +9,7 @@ const Basket = () => {
     const [newList, setNewlist] = useState({name: '', description: '', items: ''})
 
     const createLists = () => {
-        fetch(`${process.env.FETCHURL}`, {
+        fetch(`${process.env.FETCHURL}/baskets/${document.cookie.match(RegExp("/uid/"))}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Footer from "../Footer"
 
@@ -8,6 +8,7 @@ const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = () => {
         
@@ -25,11 +26,16 @@ const Login = () => {
         .then(resp=>resp.json())
         .then(json=>{
             // document.cookie = `jwt = ${json.data}; secure; httponly;`
+
             //testing with jwt
-            document.cookie = `jwt = ${json.token}; secure; httponly;`
-            console.log(json.token)
+            let tmr = new Date(Date.now()+86400000)
+            document.cookie = `jwt = ${json.token}; expires=${tmr}; path-/;`
+            document.cookie = `uid = ${json.id}; expires=${tmr}`
         })
+        .then(navigate("/baskets"))
         .catch(errors=>console.log(errors))
+
+
     }
 
     return (
