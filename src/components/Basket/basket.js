@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {Fragment, useState} from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import List from '../List'
+import Navbar from '../Navbar'
 
 const Basket = () => {
 
@@ -41,12 +42,16 @@ const Basket = () => {
         setNewlist({name: '', description: '', items: ''})
     }
 
-    return <Dashboard>
-            {createLists}
-            <Link to="/add_new_list">
-                <AddButton type="image" src="./images/plus.jpg"/>
-            </Link>
-        </Dashboard>
+    return (
+        <Fragment>
+            <Navbar/>
+            <Dashboard>
+                {createLists}
+                <Link to="/add_new_list">
+                    <AddButton type="image" src="./images/plus.jpg"/>
+                </Link>
+            </Dashboard>
+        </Fragment>)
 }
 
 export default Basket

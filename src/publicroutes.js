@@ -4,14 +4,18 @@ import { Route, Routes } from 'react-router-dom'
 //components
 import Login from './components/Login'
 import Signup from './components/Signup'
-import AuthRoutes from './authroutes'
+import Basket from './components/Basket'
+import NewListForm from './components/NewListForm'
 
 
 const PublicRoutes = () => {
     return <Routes>
         <Route exact path='/' element={<Login/>} />
         <Route exact path='/signup' element={<Signup/>} />
-        <Route path='/' element={<AuthRoutes/>} />
+        <Route path='/'>
+            <Route exact path='baskets' element={<Basket/>}/>
+            <Route exact path='baskets/create' element={<NewListForm/>}/>
+        </Route>
     </Routes>
 }
 
